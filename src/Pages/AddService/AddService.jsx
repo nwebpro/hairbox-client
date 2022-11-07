@@ -1,9 +1,12 @@
 import React from 'react';
 
 const AddService = () => {
+    const handleServiceAdd = e => {
+        e.preventDefault()
+    }
     return (
-        <div className='px-[15px] md:px-0 mx-auto container py-20 rounded-xl'>
-            <form className='lg:max-w-3xl mx-auto p-10 bg-white shadow-2xl'>
+        <div className='px-[15px] md:px-0 mx-auto container py-20'>
+            <form onSubmit={handleServiceAdd} className='lg:max-w-3xl mx-auto p-10 bg-white shadow-2xl rounded-xl'>
                 <div className='mb-5'>
                     <label htmlFor="sname" className="block text-sm font-bold text-theme-dark">
                         Service Name
