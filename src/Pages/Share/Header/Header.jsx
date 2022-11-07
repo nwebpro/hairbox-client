@@ -44,6 +44,20 @@ const Header = () => {
                                 About
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink
+                                to="/service/add"
+                                aria-label="Service Add"
+                                title="Service Add"
+                                className={({ isActive }) =>
+                                    isActive
+                                    ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
+                                    : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                }
+                            >
+                                Add Service
+                            </NavLink>
+                        </li>
                     </ul>
                     <div className="lg:hidden">
                         <button
