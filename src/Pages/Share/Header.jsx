@@ -5,7 +5,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <div className="h-[80px] shadow">
-            <div className="px-4 py-6 mx-auto container md:px-24 lg:px-8">
+            <div className="px-[15px] py-6 mx-auto container md:px-0">
                 <div className="relative flex items-center justify-between">
                     <Link
                         to="/"
