@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import facebook from '../../../assets/image/socialLogin/facebook.svg'
 import google from '../../../assets/image/socialLogin/google.svg'
 import linkedin from '../../../assets/image/socialLogin/linkedin.svg'
-import { AuthContext } from '../../../Context/AuthProvider/AuthProvider'
+import { AuthContext } from '../../../Context/AuthContext/AuthProvider'
 
 const SocialLogin = () => {
     const navigate = useNavigate()

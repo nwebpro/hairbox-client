@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../../Context/AuthContext/AuthProvider';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, userLogout } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        userLogout()
+            .then(toast.warning('User logged out!', {autoClose: '500'}))
+            .catch(error => console.log(error))
+    }
+
     return (
         <div className="h-[80px] shadow">
             <div className="px-[15px] py-6 mx-auto container md:px-0">
@@ -86,6 +96,29 @@ const Header = () => {
                                 My Review
                             </NavLink>
                         </li>
+                        {
+                            user?.uid ?
+                            <li>
+                                <button onClick={handleLogout} className='text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'>
+                                    Logout
+                                </button>
+                            </li>
+                            :
+                            <li>
+                                <NavLink
+                                    to="/login"
+                                    aria-label="Login"
+                                    title="Login"
+                                    className={({ isActive }) =>
+                                        isActive
+                                        ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
+                                        : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                    }
+                                >
+                                    Login
+                                </NavLink>
+                            </li>
+                        }
                     </ul>
                     <div className="lg:hidden">
                         <button

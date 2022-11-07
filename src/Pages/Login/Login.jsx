@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../Context/AuthProvider/AuthProvider'
 import { toast } from 'react-toastify'
+import { AuthContext } from '../../Context/AuthContext/AuthProvider'
 import SocialLogin from '../Share/SocialLogin/SocialLogin'
 
 const Login = () => {
@@ -25,8 +25,8 @@ const Login = () => {
     }
 
     return (
-        <div className='container mx-auto px-[15px] lg:px-0 mb-b-70 lg:mb-b-130'>
-            <div className='grid grid-cols-1'>
+        <div className='container mx-auto px-[15px] lg:px-0 my-20'>
+            <div className='md:max-w-lg mx-auto'>
                 <div className='border border-[#D0D0D0] rounded-rounded-10 p-12 md:p-20'>
                     <h3 className='text-theme-body text-center text-4xl font-semibold leading-10 mb-b-50'>Login</h3>
                     <form onSubmit={handleUserLogin} action="">
