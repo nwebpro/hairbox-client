@@ -68,41 +68,43 @@ const Header = () => {
                                 Services
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink
-                                to="/service/add"
-                                aria-label="Service Add"
-                                title="Service Add"
-                                className={({ isActive }) =>
-                                    isActive
-                                    ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
-                                    : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
-                                }
-                            >
-                                Add Service
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/my-review"
-                                aria-label="My Review"
-                                title="My Review"
-                                className={({ isActive }) =>
-                                    isActive
-                                    ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
-                                    : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
-                                }
-                            >
-                                My Review
-                            </NavLink>
-                        </li>
                         {
                             user?.uid ?
+                            <>
                             <li>
-                                <button onClick={handleLogout} className='text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'>
+                                <NavLink
+                                    to="/service/add"
+                                    aria-label="Service Add"
+                                    title="Service Add"
+                                    className={({ isActive }) =>
+                                        isActive
+                                        ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
+                                        : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                    }
+                                >
+                                    Add Service
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/my-review"
+                                    aria-label="My Review"
+                                    title="My Review"
+                                    className={({ isActive }) =>
+                                        isActive
+                                        ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
+                                        : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                    }
+                                >
+                                    My Review
+                                </NavLink>
+                            </li>
+                            <li>
+                                <button onClick={handleLogout} className='text-base font-bold tracking-wide text-white transition-colors duration-200 bg-theme-default py-2 px-3 rounded-full'>
                                     Logout
                                 </button>
                             </li>
+                            </>
                             :
                             <li>
                                 <NavLink
@@ -111,8 +113,8 @@ const Header = () => {
                                     title="Login"
                                     className={({ isActive }) =>
                                         isActive
-                                        ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
-                                        : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                        ? 'text-base font-bold tracking-wide text-white transition-colors duration-200 bg-theme-default py-2 px-3 rounded-full'
+                                        : 'text-base font-bold tracking-wide text-white transition-colors duration-200 bg-theme-default py-2 px-3 rounded-full'
                                     }
                                 >
                                     Login
@@ -202,6 +204,73 @@ const Header = () => {
                                                 About
                                             </NavLink>
                                         </li>
+                                        <li>
+                                            <NavLink
+                                                to="/services"
+                                                aria-label="Services"
+                                                title="Services"
+                                                className={({ isActive }) =>
+                                                    isActive
+                                                    ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
+                                                    : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                                }
+                                            >
+                                                Services
+                                            </NavLink>
+                                        </li>
+                                        {
+                                            user?.uid ?
+                                            <>
+                                            <li>
+                                                <NavLink
+                                                    to="/service/add"
+                                                    aria-label="Service Add"
+                                                    title="Service Add"
+                                                    className={({ isActive }) =>
+                                                        isActive
+                                                        ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
+                                                        : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                                    }
+                                                >
+                                                    Add Service
+                                                </NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink
+                                                    to="/my-review"
+                                                    aria-label="My Review"
+                                                    title="My Review"
+                                                    className={({ isActive }) =>
+                                                        isActive
+                                                        ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
+                                                        : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                                    }
+                                                >
+                                                    My Review
+                                                </NavLink>
+                                            </li>
+                                            <li>
+                                                <button onClick={handleLogout} className='text-base font-bold tracking-wide text-white transition-colors duration-200 bg-theme-default py-2 px-3 rounded-full'>
+                                                    Logout
+                                                </button>
+                                            </li>
+                                            </>
+                                            :
+                                            <li>
+                                                <NavLink
+                                                    to="/login"
+                                                    aria-label="Login"
+                                                    title="Login"
+                                                    className={({ isActive }) =>
+                                                        isActive
+                                                        ? 'text-base font-bold tracking-wide text-white transition-colors duration-200 bg-theme-default py-2 px-3 rounded-full'
+                                                        : 'text-base font-bold tracking-wide text-white transition-colors duration-200 bg-theme-default py-2 px-3 rounded-full'
+                                                    }
+                                                >
+                                                    Login
+                                                </NavLink>
+                                            </li>
+                                        }
                                     </ul>
                                 </nav>
                             </div>
