@@ -10,7 +10,10 @@ const ServicesItem = ({ service }) => {
             <p>
                 {
                     descrption.length > 100 ?
-                    <>{descrption.slice(0, 100) + '... '}<Link to={`/service/${ _id }`} className='text-bold text-theme-default underline'>Read More</Link></>
+                    <>
+                        {descrption.slice(0, 100) + '... '}
+                        <Link to={`/service/${ _id }`} className='text-bold text-theme-default underline'>Read More</Link>
+                    </>
                     :
                     descrption
                 }
