@@ -74,16 +74,16 @@ const Header = () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/review/add"
-                                aria-label="Review Add"
-                                title="Review Add"
+                                to="/my-review"
+                                aria-label="My Review"
+                                title="My Review"
                                 className={({ isActive }) =>
                                     isActive
                                     ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
                                     : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
                                 }
                             >
-                                Add Review
+                                My Review
                             </NavLink>
                         </li>
                     </ul>

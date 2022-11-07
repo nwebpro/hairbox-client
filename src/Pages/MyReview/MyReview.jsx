@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddReview = () => {
+const MyReview = () => {
     const handleReviewAdd = e => {
         e.preventDefault()
     }
@@ -42,4 +42,4 @@ const AddReview = () => {
     );
 };
 
-export default AddReview;
+export default MyReview;
