@@ -3,6 +3,7 @@ import React from 'react';
 const MyReview = () => {
     const handleReviewAdd = e => {
         e.preventDefault()
+        
     }
     return (
         <div className='px-[15px] md:px-0 mx-auto container py-20'>

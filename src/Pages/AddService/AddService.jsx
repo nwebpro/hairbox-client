@@ -1,19 +1,48 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddService = () => {
+    const navigate = useNavigate()
     const handleServiceAdd = e => {
         e.preventDefault()
+        const service = {
+            serviceName: e.target.serviceName.value,
+            price: parseInt(e.target.price.value),
+            serviceImage: e.target.serviceImage.value,
+            serviceDetails: e.target.serviceDetails.value
+        }
+
+        fetch('http://localhost:5000/api/online-basket/services', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(service)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.success){
+                toast.success(data.message)
+                navigate('/services')
+            }else{
+                toast.error(data.error)
+            }
+        })
+        .catch(err => {
+            toast.error(err.message)
+        })
     }
     return (
         <div className='px-[15px] md:px-0 mx-auto container py-20'>
             <form onSubmit={handleServiceAdd} className='lg:max-w-3xl mx-auto p-10 bg-white shadow-2xl rounded-xl'>
                 <div className='mb-5'>
-                    <label htmlFor="sname" className="block text-sm font-bold text-theme-dark">
+                    <label htmlFor="serviceName" className="block text-sm font-bold text-theme-dark">
                         Service Name
                     </label>
                     <input
                     type="text"
-                    name="sname"
+                    name="serviceName"
                     className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
                     placeholder='Enter your service name'
                     />
@@ -30,22 +59,22 @@ const AddService = () => {
                     />
                 </div>
                 <div className='mb-5'>
-                    <label htmlFor="simage" className="block text-sm font-bold text-theme-dark">
+                    <label htmlFor="serviceImage" className="block text-sm font-bold text-theme-dark">
                         Service Image
                     </label>
                     <input
                     type="text"
-                    name="simage"
+                    name="serviceImage"
                     className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
                     placeholder='Enter your image url'
                     />
                 </div>
                 <div className='mb-5'>
-                    <label htmlFor="simage" className="block text-sm font-bold text-theme-dark">
+                    <label htmlFor="serviceDetails" className="block text-sm font-bold text-theme-dark">
                         Service Details
                     </label>
                     <textarea
-                        name="sdetails"
+                        name="serviceDetails"
                         rows={5}
                         className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
                         placeholder="Service details"
