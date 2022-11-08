@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import useSetTitle from '../../hooks/useSetTitle';
 import ServicesItem from './ServicesItem';
 
 const Services = () => {
     const [services, setServices] = useState([])
+    useSetTitle('Services')
 
     useEffect(() => {
         fetch('http://localhost:5000/api/online-basket/all-services')

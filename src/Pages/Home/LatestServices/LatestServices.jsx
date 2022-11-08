@@ -17,14 +17,14 @@ const LatestServices = () => {
                 <h2 className='text-4xl text-theme-dark mb-3 font-bold'>Our Services</h2>
                 <p className='text-base text-theme-body'>There are many variations of passages of Lorem Ipsum available but the majority injected humour randomised words</p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] mb-16'>
                 {
                     latestServices.map(service => (
                         <LatestServicesItem key={service._id} service={service} />
                     ))
                 }
             </div>
-            <div className='text-center mt-8'>
+            <div className='text-center'>
                 <Link to='/services' className='inline-flex bg-theme-default py-4 px-10 rounded-lg text-white font-bold text-xl'>See All Services</Link>
             </div>
         </section>

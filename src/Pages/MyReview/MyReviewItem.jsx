@@ -1,35 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../../Context/AuthContext/AuthProvider';
-import useSetTitle from '../../../hooks/useSetTitle';
-import AddReview from './AddReview/AddReview';
-import ReviewItem from './AddReview/ReviewItem';
+import React from 'react';
+import { FiEdit } from 'react-icons/fi'
+import { AiOutlineDelete } from 'react-icons/ai'
+import { Link } from 'react-router-dom';
 
-const ServiceDetails = () => {
-    const [reviews, setReviews] = useState([])
-    const { user } = useContext(AuthContext)
-    const serviceDetailsData = useLoaderData()
-    const details = serviceDetailsData.data
-    const { _id, serviceName, price, serviceDetails, serviceImage} = details
-    useSetTitle(serviceName)
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/api/online-basket/all-review?serviceId=${ _id }`)
-        .then(res => res.json())
-        .then(data => setReviews(data.data))
-    }, [reviews, _id])
-
+const MyReviewItem = ({ review, handleReviewDelete }) => {
+    const { _id, userName, reviewDetails, userImg } = review
     return (
-        <div className='px-[15px] lg:px-0 mx-auto lg:max-w-4xl py-20'>
-            <img src={ serviceImage } className='w-full object-cover h-80 rounded mb-3' alt="" />
-            <h2 className='text-2xl font-bold text-theme-dark mb-2'>{ serviceName }</h2>
-            <p className='text-theme-body text-base mb-5'>{ serviceDetails }</p>
-            <button className='inline-flex font-bold bg-theme-default py-3 px-7 text-white text-xl rounded-full '>Price: ${ price }</button>
-            <div className='mt-20 flex justify-between'>
-                
-                <div className="">
-                    <div className="flex flex-col">
-                        <h2 className="text-2xl font-semibold">Customer reviews</h2>
+        <div className="flex flex-col divide-y rounded-md divide-gray-200">
+            <div className="flex justify-between p-4">
+                <div className="flex space-x-4">
+                    <div>
+                        <img src={ userImg } alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                    </div>
+                    <div>
+                        <h4 className="font-bold">{ userName }</h4>
+                        <span className="text-xs text-theme-body italic">2 days ago</span>
                         <div className="flex flex-wrap items-center mt-2 mb-1 space-x-2">
                             <div className="flex">
                                 <span title="Rate 1 stars" aria-label="Rate 1 stars">
@@ -60,29 +45,22 @@ const ServiceDetails = () => {
                             </div>
                             <span className="text-theme-text italic">3 out of 5</span>
                         </div>
-                        <p className="text-sm text-theme-text capitalize">{reviews.length} ratings</p>
                     </div>
                 </div>
+                <div className="flex flex-wrap items-center mt-2 mb-1 space-x-2">
+                    <button className='text-xl text-theme-default'>
+                        <Link to={`/review/edit/${ _id }`} title='Review Edit'><FiEdit /></Link>
+                    </button>
+                    <button onClick={() => handleReviewDelete(_id)} title='Review Delete' className='text-xl text-red-600'>
+                        <AiOutlineDelete />
+                    </button>
+                </div>
             </div>
-            <div className='mt-16'>
-                {
-                    user?.uid ?
-                    <AddReview details={details} />
-                    :
-                    <div className='w-full text-center'>
-                        <h3 className='text-3xl text-theme-body/30'>Please login to add a review</h3>
-                    </div>
-                }
-            </div>
-            <div className='mt-10'>
-                {
-                    reviews.map(review => (
-                        <ReviewItem key={review._id} review={review} />
-                    ))
-                }
+            <div className="p-4 space-y-2 text-base text-theme-body">
+                <p>{ reviewDetails }</p>
             </div>
         </div>
     );
 };
 
-export default ServiceDetails;
+export default MyReviewItem;

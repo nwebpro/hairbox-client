@@ -14,6 +14,7 @@ const AddReview = ({ details }) => {
             reviewDetails: from.reviewDetails.value,
             serviceId: _id,
             userImg: user?.photoURL,
+            date: new Date()
         }
         console.log(review)
 
@@ -62,6 +63,7 @@ const AddReview = ({ details }) => {
                     name="reviewDetails"
                     rows={5}
                     className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
+                    required
                     placeholder="Write a review"
                 />
             </div>

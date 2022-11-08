@@ -1,44 +1,60 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../Context/AuthContext/AuthProvider';
+import MyReviewItem from './MyReviewItem';
+import Swal from 'sweetalert2';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const MyReview = () => {
-    const handleReviewAdd = e => {
-        e.preventDefault()
-        
+    const [reviews, setReviews] = useState([])
+    const { user } = useContext(AuthContext)
+    useSetTitle('My Review')
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/api/online-basket/review?email=${user?.email}`)
+        .then(res => res.json())
+        .then(data => setReviews(data.data))
+    }, [user?.email, reviews])
+
+    const handleReviewDelete = reviewId => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+
+                fetch(`http://localhost:5000/api/online-basket/review/${ reviewId }`, {
+                    method: "DELETE",
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.data.success) {
+                        const remaining = reviews.filter(review => review._id !== reviewId)
+                        setReviews(remaining)
+                    }
+                })
+            }
+        })
     }
+
     return (
         <div className='px-[15px] md:px-0 mx-auto container py-20'>
-            <form onSubmit={handleReviewAdd} className='lg:max-w-3xl mx-auto p-10 bg-white shadow-2xl rounded-xl'>
-                <div className='mb-5'>
-                    <label htmlFor="reviewTitle" className="block text-sm font-bold text-theme-dark">
-                        Review Title
-                    </label>
-                    <input
-                    type="text"
-                    name="reviewTitle"
-                    className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
-                    placeholder='Enter your review title'
-                    />
-                </div>
-                <div className='mb-5'>
-                    <label htmlFor="reviewDetails" className="block text-sm font-bold text-theme-dark">
-                        Review Details
-                    </label>
-                    <textarea
-                        name="reviewDetails"
-                        rows={5}
-                        className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
-                        placeholder="Review details"
-                    />
-                </div>
-                <div className="px-4 py-3 text-right sm:px-6">
-                <button
-                    type="submit"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-theme-default py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-theme-default focus:outline-none"
-                >
-                    Add Review
-                </button>
-                </div>
-            </form>
+            <div className='mt-10'>
+                {
+                    reviews.map(review => (
+                        <MyReviewItem key={review._id} review={review} handleReviewDelete={handleReviewDelete} />
+                    ))
+                }
+            </div>
         </div>
     );
 };

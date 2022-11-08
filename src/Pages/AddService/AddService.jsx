@@ -1,16 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const AddService = () => {
     const navigate = useNavigate()
+    useSetTitle('Add New Service')
     const handleServiceAdd = e => {
         e.preventDefault()
         const service = {
             serviceName: e.target.serviceName.value,
             price: parseInt(e.target.price.value),
             serviceImage: e.target.serviceImage.value,
-            serviceDetails: e.target.serviceDetails.value
+            serviceDetails: e.target.serviceDetails.value,
+            date: new Date()
         }
 
         fetch('http://localhost:5000/api/online-basket/services', {

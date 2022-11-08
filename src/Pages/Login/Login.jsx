@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../Context/AuthContext/AuthProvider'
+import useSetTitle from '../../hooks/useSetTitle'
 import SocialLogin from '../Share/SocialLogin/SocialLogin'
 
 const Login = () => {
@@ -9,6 +10,7 @@ const Login = () => {
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
     const { userLogin } = useContext(AuthContext)
+    useSetTitle('Login')
 
     const handleUserLogin = e => {
         e.preventDefault()

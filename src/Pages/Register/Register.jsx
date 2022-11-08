@@ -2,9 +2,11 @@ import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../Context/AuthContext/AuthProvider'
+import useSetTitle from '../../hooks/useSetTitle'
 import SocialLogin from '../Share/SocialLogin/SocialLogin'
 
 const Register = () => {
+    useSetTitle('Register')
     const navigate = useNavigate()
     const { createUser, updateUserProfile, setLoading } = useContext(AuthContext)
 
@@ -64,6 +66,7 @@ const Register = () => {
                                 className="mt-5 w-full rounded-rounded-10 py-4 px-6 text-theme-dark placeholder-[#A2A2A2] font-normal text-base leading-leading-30 border focus:outline-1 focus:outline-theme-default"
                                 type="text"
                                 name="photoURL"
+                                defaultValue={'https://placeimg.com/192/192/people'}
                                 placeholder='Photo URL'
                             />
                         </div>

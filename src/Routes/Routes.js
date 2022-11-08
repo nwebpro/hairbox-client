@@ -10,6 +10,7 @@ import MyReview from "../Pages/MyReview/MyReview";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import ReviewEdit from "../Pages/MyReview/ReviewEdit";
 
 export const router = createBrowserRouter([
     {
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([
             {
                 path: '/service/:serviceId',
                 element: <ServiceDetails />,
-                loader: ({ params }) => fetch(`http://localhost:5000/api/online-basket/service/${params.serviceId}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/api/online-basket/service/${params?.serviceId}`)
             },
             {
                 path: '/service/add',
@@ -54,6 +55,14 @@ export const router = createBrowserRouter([
                     </PrivateRoute>
                 )
                 
+            },
+            {
+                path: '/review/edit/:reviewId',
+                element: (
+                    <PrivateRoute>
+                        <ReviewEdit />
+                    </PrivateRoute>
+                )
             },
             {
                 path: '/login',
