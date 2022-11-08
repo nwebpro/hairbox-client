@@ -6,14 +6,26 @@ import useSetTitle from '../../hooks/useSetTitle';
 
 const MyReview = () => {
     const [reviews, setReviews] = useState([])
-    const { user } = useContext(AuthContext)
+    const { user, userLogout } = useContext(AuthContext)
     useSetTitle('My Review')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/online-basket/review?email=${user?.email}`)
-        .then(res => res.json())
-        .then(data => setReviews(data.data))
-    }, [user?.email, reviews])
+        fetch(`http://localhost:5000/api/online-basket/review?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('onlineBasket')}`
+            }
+        })
+        .then(res => {
+            if(res.status === 401 || res.status === 403) {
+                userLogout()
+            }
+            res.json()
+        })
+        .then(data => {
+            setReviews(data.data)
+        })
+    }, [user?.email, reviews, userLogout])
+    console.log(reviews)
 
     const handleReviewDelete = reviewId => {
         Swal.fire({
@@ -34,6 +46,9 @@ const MyReview = () => {
 
                 fetch(`http://localhost:5000/api/online-basket/review/${ reviewId }`, {
                     method: "DELETE",
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('onlineBasket')}`
+                    }
                 })
                 .then(res => res.json())
                 .then(data => {

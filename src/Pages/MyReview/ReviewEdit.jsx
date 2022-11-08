@@ -33,7 +33,8 @@ const ReviewEdit = () => {
         fetch(`http://localhost:5000/api/online-basket/review/${ reviewId }`, {
             method: "PATCH",
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem('onlineBasket')}`
             },
             body: JSON.stringify(reviewUpdate)
         })

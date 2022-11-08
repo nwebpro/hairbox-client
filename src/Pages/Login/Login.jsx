@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { setJWTAuthToken } from '../../api/jwtAuth'
 import { AuthContext } from '../../Context/AuthContext/AuthProvider'
 import useSetTitle from '../../hooks/useSetTitle'
 import SocialLogin from '../Share/SocialLogin/SocialLogin'
@@ -20,6 +21,7 @@ const Login = () => {
         userLogin(email, password)
             .then(result => {
                 const user = result.user
+                setJWTAuthToken(user)
                 toast.success('Login Success!', {autoClose: '500'})
                 navigate(from, { replace: true })
             })

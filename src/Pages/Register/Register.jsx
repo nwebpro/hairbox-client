@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { setJWTAuthToken } from '../../api/jwtAuth'
 import { AuthContext } from '../../Context/AuthContext/AuthProvider'
 import useSetTitle from '../../hooks/useSetTitle'
 import SocialLogin from '../Share/SocialLogin/SocialLogin'
@@ -21,6 +22,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user
+                setJWTAuthToken(user)
                 navigate('/')
                 handleUpdateUser(name, photoURL)
                 toast.success('User Created Successfully!', { autoClose: 500 })

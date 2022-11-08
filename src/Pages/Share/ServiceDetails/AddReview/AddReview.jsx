@@ -16,12 +16,12 @@ const AddReview = ({ details }) => {
             userImg: user?.photoURL,
             date: new Date()
         }
-        console.log(review)
 
         fetch('http://localhost:5000/api/online-basket/reviews', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('onlineBasket')}`
             },
             body: JSON.stringify(review)
         })
