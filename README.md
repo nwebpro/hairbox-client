@@ -18,7 +18,7 @@
 - User Login 
 - Social Login
 - Add Service
-- Add Review
+- Add Review with Star Rating
 - Edit Review
 - Delete Review
 - User can see review history
@@ -36,5 +36,6 @@
 - React Photo View
 - React Loader Spinner
 - React Countup
+- Date Fns
 
 
