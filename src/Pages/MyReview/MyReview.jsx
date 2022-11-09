@@ -4,28 +4,30 @@ import MyReviewItem from './MyReviewItem';
 import Swal from 'sweetalert2';
 import useSetTitle from '../../hooks/useSetTitle';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const MyReview = () => {
-    const [reviews, setReviews] = useState([])
     const { user, userLogout } = useContext(AuthContext)
+    const [reviews, setReviews] = useState([])
+    const [refresh, setRefresh] = useState(false);
     useSetTitle('My Review')
 
     useEffect(() => {
-        fetch(`https://haircat-salon.vercel.app/api/hairbox/review?email=${user?.email}`, {
+        fetch(`http://localhost:5000/api/hairbox/review?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('hairboxToken')}`
             }
         })
         .then(res => {
             if(res.status === 401 || res.status === 403) {
-                userLogout()
+                return userLogout()
             }
             return res.json()
         })
         .then(data => {
-            setReviews(data.data)
+            setReviews(data)
         })
-    }, [user?.email, reviews, userLogout])
+    }, [user?.email, refresh, userLogout])
 
     const handleReviewDelete = reviewId => {
         Swal.fire({
@@ -43,8 +45,7 @@ const MyReview = () => {
                     'Your file has been deleted.',
                     'success'
                 )
-
-                fetch(`https://haircat-salon.vercel.app/api/hairbox/review/${ reviewId }`, {
+                fetch(`http://localhost:5000/api/hairbox/review/${ reviewId }`, {
                     method: "DELETE",
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('hairboxToken')}`
@@ -52,13 +53,14 @@ const MyReview = () => {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    if(data.data.success) {
-                        const remaining = reviews.filter(review => review._id !== reviewId)
-                        setReviews(remaining)
+                    if(data.success){
+                        setRefresh(!refresh)
                     }
                 })
+                .catch(err => toast.error(err.message))
             }
         })
+        
     }
 
     return (

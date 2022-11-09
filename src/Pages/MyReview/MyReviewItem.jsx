@@ -2,9 +2,14 @@ import React from 'react';
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { Link } from 'react-router-dom';
+import { formatDistanceToNow,  } from 'date-fns'
 
 const MyReviewItem = ({ review, handleReviewDelete }) => {
-    const { _id, userName, reviewDetails, userImg } = review
+    const { _id, userName, reviewDetails, userImg, date } = review
+    const addReviewTime = formatDistanceToNow (
+        new Date(date),
+        { includeSeconds: true }
+    )
     return (
         <div className="flex flex-col divide-y rounded-md divide-gray-200">
             <div className="flex justify-between p-4">
@@ -14,7 +19,7 @@ const MyReviewItem = ({ review, handleReviewDelete }) => {
                     </div>
                     <div>
                         <h4 className="font-bold">{ userName }</h4>
-                        <span className="text-xs text-theme-body italic">2 days ago</span>
+                        <span className="text-xs text-theme-body italic">{ addReviewTime }</span>
                         <div className="flex flex-wrap items-center mt-2 mb-1 space-x-2">
                             <div className="flex">
                                 <span title="Rate 1 stars" aria-label="Rate 1 stars">

@@ -1,7 +1,12 @@
 import React from 'react';
+import { formatDistanceToNow,  } from 'date-fns'
 
 const ReviewItem = ({ review }) => {
-    const { userName, reviewDetails, userImg } = review
+    const { userName, reviewDetails, userImg, date } = review
+    const addReviewTime = formatDistanceToNow (
+        new Date(date),
+        { includeSeconds: true }
+    )
     return (
         <div className="flex flex-col divide-y rounded-md divide-gray-200">
             <div className="flex justify-between p-4">
@@ -16,7 +21,7 @@ const ReviewItem = ({ review }) => {
                     </div>
                     <div>
                         <h4 className="font-bold">{ userName }</h4>
-                        <span className="text-xs text-theme-body italic">2 days ago</span>
+                        <span className="text-xs text-theme-body italic">{ addReviewTime }</span>
                     </div>
                 </div>
                 <div className="flex flex-wrap items-center mt-2 mb-1 space-x-2">

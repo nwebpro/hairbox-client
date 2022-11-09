@@ -8,7 +8,7 @@ const Services = () => {
     useSetTitle('Services')
 
     useEffect(() => {
-        fetch('https://haircat-salon.vercel.app/api/hairbox/all-services')
+        fetch('http://localhost:5000/api/hairbox/all-services')
             .then(res => res.json())
             .then(data => setServices(data.data))
     }, [])

@@ -14,7 +14,7 @@ const ServiceDetails = () => {
     useSetTitle(serviceName)
 
     useEffect(() => {
-        fetch(`https://haircat-salon.vercel.app/api/hairbox/all-review?serviceId=${ _id }`)
+        fetch(`http://localhost:5000/api/hairbox/all-review?serviceId=${ _id }`)
         .then(res => res.json())
         .then(data => setReviews(data.data))
     }, [reviews, _id])

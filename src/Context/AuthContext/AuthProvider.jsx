@@ -22,7 +22,6 @@ const AuthProvider = ({ children }) => {
     }
 
     const userLogout = () => {
-        setLoading(true)
         localStorage.removeItem('hairboxToken')
         return signOut(auth)
     }

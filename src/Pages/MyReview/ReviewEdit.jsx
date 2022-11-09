@@ -10,7 +10,7 @@ const ReviewEdit = () => {
     useSetTitle('Update Your Review')
 
     useEffect(() => {
-        fetch(`https://haircat-salon.vercel.app/api/hairbox/review/${ reviewId }`)
+        fetch(`http://localhost:5000/api/hairbox/review/${ reviewId }`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.success) {
@@ -30,7 +30,7 @@ const ReviewEdit = () => {
             reviewDetails: e.target.reviewDetails.value
         }
     
-        fetch(`https://haircat-salon.vercel.app/api/hairbox/review/${ reviewId }`, {
+        fetch(`http://localhost:5000/api/hairbox/review/${ reviewId }`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

@@ -3,7 +3,7 @@ export const setJWTAuthToken = user => {
         email: user.email
     }
     // Get JWT Token
-    fetch('https://haircat-salon.vercel.app/api/hairbox/jwt', {
+    fetch('http://localhost:5000/api/hairbox/jwt', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

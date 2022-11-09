@@ -7,7 +7,7 @@ const LatestServices = () => {
     const [latestServices, setLatestServices] = useState([])
 
     useEffect(() => {
-        fetch('https://haircat-salon.vercel.app/api/hairbox/services')
+        fetch('http://localhost:5000/api/hairbox/services')
             .then(res => res.json())
             .then(data => setLatestServices(data.data))
     }, [])
