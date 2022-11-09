@@ -9,9 +9,8 @@ const About = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 items-center'>
                 <div>
                     <h1 className='text-[40px] lg:text-[40px] lg:max-w-fit font-bold leading-10 lg:leading-[50px] mb-5'>About Us</h1>
-                    <p className='text-lg font-medium text-theme-body mb-5 lg:mr-[100px]'>There are many variations of passages Ipsum available but the majority have suffered alteration.</p>
-                    <p className='text-lg font-medium text-theme-body mb-5 lg:mr-[100px]'>in that some injected is humour or randomised words the which don’t look slightly a believable. If you are Lorem and Ipsum you isn’t anything embarrassing.</p>
-                    <Link to='/services' className='bg-theme-default text-white px-6 py-4 rounded-full inline-block'>Services</Link>
+                    <p className='text-lg font-medium text-theme-body mb-5 lg:mr-[100px]'>Hair Box is one of the best premium Men salon. Here we provide the best ever services. We believe in 100% customer satisfaction. Hairbox’s services run the gamut from- Hair Cut, Hair Color, Hair Treatment, Facial, Manicure, Pedicure, Body Scrub, Body Massage, and Steam Bath</p>
+                    <p className='text-lg font-medium text-theme-body mb-5 lg:mr-[100px]'>Hairbox is more than just your regular makeover salon. All time we ensure that we take on board reliable beauty professionals so that our clients get best services. Hairbox team tries to make sure that you look your best anywhere, anytime, always</p>
                 </div>
                 <div className='flex gap-5'>
                     <img src='https://radiustheme.com/demo/wordpress/themes/salion/wp-content/uploads/2021/03/figure2.jpg' alt="" className='h-[400px] w-full object-fil' />

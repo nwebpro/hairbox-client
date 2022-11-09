@@ -2,7 +2,7 @@ import { useEffect } from "react"
 
 const useSetTitle = title => {
     useEffect(() => {
-        document.title = `${title} - Online Haircut Service`
+        document.title = `${title} - Hairbox Best Premium Men's Salon`
     }, [title])
 }
 

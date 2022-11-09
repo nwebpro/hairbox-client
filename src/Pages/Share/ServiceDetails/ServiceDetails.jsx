@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthContext/AuthProvider';
 import useSetTitle from '../../../hooks/useSetTitle';
 import AddReview from './AddReview/AddReview';
@@ -21,7 +21,7 @@ const ServiceDetails = () => {
 
     return (
         <div className='px-[15px] lg:px-0 mx-auto lg:max-w-4xl py-20'>
-            <img src={ serviceImage } className='w-full object-cover h-80 rounded mb-3' alt="" />
+            <img src={ serviceImage } className='w-full h-96 object-cover object-center rounded mb-3' alt="" />
             <h2 className='text-2xl font-bold text-theme-dark mb-2'>{ serviceName }</h2>
             <p className='text-theme-body text-base mb-5'>{ serviceDetails }</p>
             <button className='inline-flex font-bold bg-theme-default py-3 px-7 text-white text-xl rounded-full '>Price: ${ price }</button>
@@ -69,9 +69,11 @@ const ServiceDetails = () => {
                     user?.uid ?
                     <AddReview details={details} />
                     :
-                    <div className='w-full text-center'>
-                        <h3 className='text-3xl text-theme-body/30'>Please login to add a review</h3>
-                    </div>
+                    <Link to='/login'>
+                        <div className='w-full text-center'>
+                            <h3 className='text-3xl text-theme-body/30'>Please login to add a review</h3>
+                        </div>
+                    </Link>
                 }
             </div>
             <div className='mt-10'>

@@ -3,6 +3,7 @@ import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 import MyReviewItem from './MyReviewItem';
 import Swal from 'sweetalert2';
 import useSetTitle from '../../hooks/useSetTitle';
+import { Link } from 'react-router-dom';
 
 const MyReview = () => {
     const [reviews, setReviews] = useState([])
@@ -19,13 +20,12 @@ const MyReview = () => {
             if(res.status === 401 || res.status === 403) {
                 userLogout()
             }
-            res.json()
+            return res.json()
         })
         .then(data => {
             setReviews(data.data)
         })
     }, [user?.email, reviews, userLogout])
-    console.log(reviews)
 
     const handleReviewDelete = reviewId => {
         Swal.fire({
@@ -63,13 +63,22 @@ const MyReview = () => {
 
     return (
         <div className='px-[15px] md:px-0 mx-auto container py-20'>
-            <div className='mt-10'>
-                {
-                    reviews.map(review => (
-                        <MyReviewItem key={review._id} review={review} handleReviewDelete={handleReviewDelete} />
-                    ))
-                }
-            </div>
+            {
+                reviews.length === 0 ?
+                <Link to='/services'>
+                    <div className='w-full text-center py-40 md:py-60 lg:py-72'>
+                        <h3 className='text-3xl text-theme-body/30'>No reviews were added!</h3>
+                    </div>
+                </Link>
+                :
+                <div className='mt-10'>
+                    {
+                        reviews.map(review => (
+                            <MyReviewItem key={review._id} review={review} handleReviewDelete={handleReviewDelete} />
+                        ))
+                    }
+                </div>
+            }
         </div>
     );
 };

@@ -8,7 +8,7 @@ const LatestServicesItem = ({ service }) => {
         <div className='p-5 bg-white shadow-lg rounded-lg'>
             <PhotoProvider>
                 <PhotoView src={ serviceImage }>
-                    <img src={ serviceImage } className='w-full h-80 object-fill mb-5 rounded-lg' alt="" />
+                    <img src={ serviceImage } className='w-full mb-5 rounded-lg' alt="" />
                 </PhotoView>
             </PhotoProvider>
             <h2 className='text-2xl font-bold text-theme-dark mb-3 leading-8'>{ serviceName }</h2>

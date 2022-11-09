@@ -20,8 +20,7 @@ const AddReview = ({ details }) => {
         fetch('http://localhost:5000/api/online-basket/reviews', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('onlineBasket')}`
+                'content-type': 'application/json'
             },
             body: JSON.stringify(review)
         })

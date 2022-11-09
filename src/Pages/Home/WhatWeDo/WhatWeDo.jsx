@@ -10,17 +10,17 @@ const WhatWeDo = () => {
                 <p className='text-base text-theme-body'>There are many variations of passages of Lorem Ipsum available but the majority have randomised words which look even slightly believable.</p>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-                <div className='flex flex-col md:flex-row'>                   
-                    <div className='flex justify-center items-center text-5xl text-white bg-theme-default md:w-[200px] lg:w-52 py-10 md:py-0 rounded-t-lg md:rounded-tl-xl md:rounded-bl-xl'>
+                <div className='flex flex-col md:flex-row bg-gray-100 rounded-xl'>                   
+                    <div className='flex justify-center items-center text-5xl text-white bg-theme-default md:w-[200px] lg:w-52 py-10 md:py-0 rounded-tl-xl rounded-tr-xl md:rounded-tl-xl md:rounded-tr-none md:rounded-bl-xl'>
                         <BsScissors />
                     </div>
-                    <div className='bg-gray-100 p-8 rounded-b-lg md:rounded-tr-xl md:rounded-br-lg'>
+                    <div className='bg-gray-100 p-8 rounded-br-lg rounded-tr-lg md:rounded-tr-xl md:rounded-br-lg'>
                         <h3 className='text-theme-dark font-bold mb-3 text-2xl'>Haircut Style</h3>
                         <p className='text-base text-theme-text'>There are many variations of passages Lorem Ipsu available but themajority a suffered alteratio some form more as more</p>
                     </div>
                 </div>
-                <div className='flex flex-col md:flex-row'>                   
-                    <div className='flex justify-center items-center text-5xl text-white bg-theme-default md:w-[200px] lg:w-52 py-10 md:py-0 rounded-t-lg md:rounded-tl-xl md:rounded-bl-xl'>
+                <div className='flex flex-col md:flex-row bg-gray-100 rounded-xl'>                   
+                    <div className='flex justify-center items-center text-5xl text-white bg-theme-default md:w-[200px] lg:w-52 py-10 md:py-0 rounded-tl-xl rounded-tr-xl md:rounded-tl-xl md:rounded-tr-none md:rounded-bl-xl'>
                         <GiRazor />
                     </div>
                     <div className='bg-gray-100 p-8 rounded-b-lg md:rounded-tr-xl md:rounded-br-lg'>

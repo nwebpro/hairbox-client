@@ -1,5 +1,6 @@
 import React from 'react';
 import useSetTitle from '../../../hooks/useSetTitle';
+import Counter from '../Counter/Counter';
 import Hero from '../Hero/Hero';
 import LatestServices from '../LatestServices/LatestServices';
 import WhatWeDo from '../WhatWeDo/WhatWeDo';
@@ -11,6 +12,7 @@ const Home = () => {
             <Hero />
             <LatestServices />
             <WhatWeDo />
+            <Counter />
         </div>
     );
 };

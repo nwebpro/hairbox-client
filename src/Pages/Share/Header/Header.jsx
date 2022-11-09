@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/AuthContext/AuthProvider';
+import hairboxx from '../../../assets/image/hairboxx.png'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,16 +15,16 @@ const Header = () => {
     }
 
     return (
-        <div className="h-[80px] shadow">
+        <div className="h-[80px] shadow bg-theme-dark">
             <div className="px-[15px] py-6 mx-auto container md:px-0">
                 <div className="relative flex items-center justify-between">
                     <Link
                         to="/"
-                        aria-label="Online Basket"
-                        title="Online Basket"
+                        aria-label="Hairbox"
+                        title="Hairbox"
                         className="inline-flex items-center"
                     >
-                        Online Basket
+                        <img src={hairboxx} className='w-32' alt="" />
                     </Link>
                     <ul className="items-center hidden space-x-8 lg:flex">
                         <li>
@@ -34,7 +35,7 @@ const Header = () => {
                                 className={({ isActive }) =>
                                     isActive
                                     ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
-                                    : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                    : 'text-base font-bold tracking-wide text-white transition-colors duration-200 hover:text-theme-default'
                                 }
                             >
                                 Home
@@ -48,7 +49,7 @@ const Header = () => {
                                 className={({ isActive }) =>
                                     isActive
                                     ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
-                                    : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                    : 'text-base font-bold tracking-wide text-white transition-colors duration-200 hover:text-theme-default'
                                 }
                             >
                                 About
@@ -62,7 +63,7 @@ const Header = () => {
                                 className={({ isActive }) =>
                                     isActive
                                     ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
-                                    : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                    : 'text-base font-bold tracking-wide text-white transition-colors duration-200 hover:text-theme-default'
                                 }
                             >
                                 Services
@@ -79,7 +80,7 @@ const Header = () => {
                                     className={({ isActive }) =>
                                         isActive
                                         ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
-                                        : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                        : 'text-base font-bold tracking-wide text-white transition-colors duration-200 hover:text-theme-default'
                                     }
                                 >
                                     Add Service
@@ -93,7 +94,7 @@ const Header = () => {
                                     className={({ isActive }) =>
                                         isActive
                                         ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
-                                        : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                        : 'text-base font-bold tracking-wide text-white transition-colors duration-200 hover:text-theme-default'
                                     }
                                 >
                                     My Review
@@ -129,7 +130,7 @@ const Header = () => {
                         className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
                         onClick={() => setIsMenuOpen(true)}
                         >
-                            <svg className="w-5 text-themeWhite" viewBox="0 0 24 24">
+                            <svg className="w-5 text-white" viewBox="0 0 24 24">
                                 <path
                                 fill="currentColor"
                                 d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
@@ -151,11 +152,11 @@ const Header = () => {
                                     <div>
                                         <Link
                                             to="/"
-                                            aria-label="Online Basket"
-                                            title="Online Basket"
-                                            className="inline-flex items-center"
+                                            aria-label="Hairbox"
+                                            title="Hairbox"
+                                            className="inline-flex items-center text-3xl font-bold"
                                         >
-                                            Online Basket
+                                            Hairbox
                                         </Link>
                                     </div>
                                     <div>
@@ -165,7 +166,7 @@ const Header = () => {
                                             className="p-2 -mt-2 -mr-2 transition duration-200 rounded text-themeWhite hover:text-themeOrange-10 focus:outline-none focus:shadow-outline"
                                             onClick={() => setIsMenuOpen(false)}
                                         >
-                                            <svg className="w-5 text-themeWhite" viewBox="0 0 24 24">
+                                            <svg className="w-5 text-theme-dark" viewBox="0 0 24 24">
                                             <path
                                                 fill="currentColor"
                                                 d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
