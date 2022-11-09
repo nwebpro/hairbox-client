@@ -11,9 +11,9 @@ const MyReview = () => {
     useSetTitle('My Review')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/online-basket/review?email=${user?.email}`, {
+        fetch(`https://haircat-salon.vercel.app/api/hairbox/review?email=${user?.email}`, {
             headers: {
-                authorization: `Bearer ${localStorage.getItem('onlineBasket')}`
+                authorization: `Bearer ${localStorage.getItem('hairboxToken')}`
             }
         })
         .then(res => {
@@ -44,10 +44,10 @@ const MyReview = () => {
                     'success'
                 )
 
-                fetch(`http://localhost:5000/api/online-basket/review/${ reviewId }`, {
+                fetch(`https://haircat-salon.vercel.app/api/hairbox/review/${ reviewId }`, {
                     method: "DELETE",
                     headers: {
-                        authorization: `Bearer ${localStorage.getItem('onlineBasket')}`
+                        authorization: `Bearer ${localStorage.getItem('hairboxToken')}`
                     }
                 })
                 .then(res => res.json())

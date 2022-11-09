@@ -10,7 +10,7 @@ const ReviewEdit = () => {
     useSetTitle('Update Your Review')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/online-basket/review/${ reviewId }`)
+        fetch(`https://haircat-salon.vercel.app/api/hairbox/review/${ reviewId }`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.success) {
@@ -30,11 +30,11 @@ const ReviewEdit = () => {
             reviewDetails: e.target.reviewDetails.value
         }
     
-        fetch(`http://localhost:5000/api/online-basket/review/${ reviewId }`, {
+        fetch(`https://haircat-salon.vercel.app/api/hairbox/review/${ reviewId }`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
-                authorization: `Bearer ${localStorage.getItem('onlineBasket')}`
+                authorization: `Bearer ${localStorage.getItem('hairboxToken')}`
             },
             body: JSON.stringify(reviewUpdate)
         })

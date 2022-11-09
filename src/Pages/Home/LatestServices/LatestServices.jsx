@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LatestServicesItem from './LatestServicesItem';
+import { InfinitySpin } from  'react-loader-spinner'
 
 const LatestServices = () => {
     const [latestServices, setLatestServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/online-basket/services')
+        fetch('https://haircat-salon.vercel.app/api/hairbox/services')
             .then(res => res.json())
             .then(data => setLatestServices(data.data))
     }, [])
@@ -19,6 +20,13 @@ const LatestServices = () => {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] mb-16'>
                 {
+                    latestServices.length === 0 ?
+                    <div className='col-span-1 md:col-span-2 lg:col-span-3'>
+                        <div className='flex justify-center'>
+                            <InfinitySpin width='200' color="#FF9302" />
+                        </div>
+                    </div>
+                    :
                     latestServices.map(service => (
                         <LatestServicesItem key={service._id} service={service} />
                     ))

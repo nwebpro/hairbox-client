@@ -17,7 +17,7 @@ const AddReview = ({ details }) => {
             date: new Date()
         }
 
-        fetch('http://localhost:5000/api/online-basket/reviews', {
+        fetch('https://haircat-salon.vercel.app/api/hairbox/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

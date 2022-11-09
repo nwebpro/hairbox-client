@@ -3,11 +3,25 @@
 [![Facebook Badge](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/abnaeembsc) [![Linkedin Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/developernaeem/) [![Instagram Badge](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/nwebpro) [![Twitter Badge](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/developernaeem) [![Mail Badge](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:abnaeem.bsc@gmail.com)
 
 
-# Website Design With React Js and Tailwind CSS
+# Hairbox Best Premium Men's Salon
 
-## Live Link - [website title](https://genius-car-ce44b.web.app/).
+## [Live Demo](https://genius-car-ce44b.web.app/).
 
-## Server Side -> [Server Side](https://github.com/nwebpro/genius-car-server).
+## [Hairbox Server Side](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-nwebpro).
+
+# About the Project
+### Hairbox is a simple Online barber shop website services. And in this website, a user can log in and give a review of the service of his choice to see how he likes the service. I have created this as an assignment purpose on this website. I have used lots of libraries.
+
+# Key Features
+
+- User Create
+- User Login 
+- Social Login
+- Add Service
+- Add Review
+- Edit Review
+- Delete Review
+- User can see review history
 
 
 # Technologies Used:⚛️
@@ -19,3 +33,8 @@
 - React Toastify
 - Firebase
 - Sweet Alert 2
+- React Photo View
+- React Loader Spinner
+- React Countup
+
+
