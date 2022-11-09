@@ -2,6 +2,7 @@ import React from 'react';
 import useSetTitle from '../../../hooks/useSetTitle';
 import Counter from '../Counter/Counter';
 import Hero from '../Hero/Hero';
+import LatestBlog from '../LatestBlog/LatestBlog';
 import LatestServices from '../LatestServices/LatestServices';
 import WhatWeDo from '../WhatWeDo/WhatWeDo';
 
@@ -13,6 +14,7 @@ const Home = () => {
             <LatestServices />
             <WhatWeDo />
             <Counter />
+            <LatestBlog />
         </div>
     );
 };

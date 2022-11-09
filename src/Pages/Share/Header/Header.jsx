@@ -69,6 +69,20 @@ const Header = () => {
                                 Services
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink
+                                to="/blog"
+                                aria-label="Blog"
+                                title="Blog"
+                                className={({ isActive }) =>
+                                    isActive
+                                    ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
+                                    : 'text-base font-bold tracking-wide text-white transition-colors duration-200 hover:text-theme-default'
+                                }
+                            >
+                                Blog
+                            </NavLink>
+                        </li>
                         {
                             user?.uid ?
                             <>
@@ -217,6 +231,20 @@ const Header = () => {
                                                 }
                                             >
                                                 Services
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to="/blog"
+                                                aria-label="Blog"
+                                                title="Blog"
+                                                className={({ isActive }) =>
+                                                    isActive
+                                                    ? 'text-base font-bold tracking-wide text-theme-default transition-colors duration-200 hover:text-theme-default'
+                                                    : 'text-base font-bold tracking-wide text-theme-dark transition-colors duration-200 hover:text-theme-default'
+                                                }
+                                            >
+                                                Blog
                                             </NavLink>
                                         </li>
                                         {
