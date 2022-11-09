@@ -5,15 +5,17 @@ import Swal from 'sweetalert2';
 import useSetTitle from '../../hooks/useSetTitle';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { InfinitySpin } from  'react-loader-spinner'
 
 const MyReview = () => {
     const { user, userLogout } = useContext(AuthContext)
+    const [reviewLoading, setReviewLoading] = useState(true)
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(false);
     useSetTitle('My Review')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/hairbox/review?email=${user?.email}`, {
+        fetch(`https://haircat-salon.vercel.app/api/hairbox/review?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('hairboxToken')}`
             }
@@ -26,6 +28,7 @@ const MyReview = () => {
         })
         .then(data => {
             setReviews(data)
+            setReviewLoading(false)
         })
     }, [user?.email, refresh, userLogout])
 
@@ -45,7 +48,7 @@ const MyReview = () => {
                     'Your file has been deleted.',
                     'success'
                 )
-                fetch(`http://localhost:5000/api/hairbox/review/${ reviewId }`, {
+                fetch(`https://haircat-salon.vercel.app/api/hairbox/review/${ reviewId }`, {
                     method: "DELETE",
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('hairboxToken')}`
@@ -65,22 +68,34 @@ const MyReview = () => {
 
     return (
         <div className='px-[15px] md:px-0 mx-auto container py-20'>
-            {
-                reviews.length === 0 ?
-                <Link to='/services'>
-                    <div className='w-full text-center py-40 md:py-60 lg:py-72'>
-                        <h3 className='text-3xl text-theme-body/30'>No reviews were added!</h3>
+            <div>
+                {
+                    reviewLoading ? 
+                    <div className='flex justify-center'>
+                        <InfinitySpin width='200' color="#FF9302" />
                     </div>
-                </Link>
-                :
-                <div className='mt-10'>
-                    {
-                        reviews.map(review => (
-                            <MyReviewItem key={review._id} review={review} handleReviewDelete={handleReviewDelete} />
-                        ))
-                    }
-                </div>
-            }
+                    :
+                    <div>
+                        {
+                            reviews.length === 0 ?
+                            <Link to='/services'>
+                                <div className='w-full text-center py-40 md:py-60 lg:py-72'>
+                                    <h3 className='text-3xl text-theme-body/30'>No reviews were added!</h3>
+                                </div>
+                            </Link>
+                            :
+                            <div className='mt-10'>
+                                {
+                                    reviews.map(review => (
+                                        <MyReviewItem key={review._id} review={review} handleReviewDelete={handleReviewDelete} />
+                                    ))
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+            
         </div>
     );
 };

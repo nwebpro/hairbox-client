@@ -4,7 +4,7 @@ import { GiRazor } from 'react-icons/gi';
 
 const WhatWeDo = () => {
     return (
-        <section className='pt-10 pb-20'>
+        <section className='md:pt-10 pb-20'>
             <div className='flex flex-col items-center lg:max-w-2xl mx-auto mb-8 text-center'>
                 <h2 className='text-4xl text-theme-dark mb-3 font-bold'>What We Do</h2>
                 <p className='text-base text-theme-body'>There are many variations of passages of Lorem Ipsum available but the majority have randomised words which look even slightly believable.</p>

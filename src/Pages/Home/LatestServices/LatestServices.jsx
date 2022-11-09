@@ -7,13 +7,13 @@ const LatestServices = () => {
     const [latestServices, setLatestServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/hairbox/services')
+        fetch('https://haircat-salon.vercel.app/api/hairbox/services')
             .then(res => res.json())
             .then(data => setLatestServices(data.data))
     }, [])
 
     return (
-        <section className='pt-16 pb-20'>
+        <section className=' md:pt-16 pb-20'>
             <div className='flex flex-col items-center lg:max-w-2xl mx-auto mb-8 text-center'>
                 <h2 className='text-4xl text-theme-dark mb-3 font-bold'>Our Services</h2>
                 <p className='text-base text-theme-body'>There are many variations of passages of Lorem Ipsum available but the majority injected humour randomised words</p>

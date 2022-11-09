@@ -8,13 +8,13 @@ const Services = () => {
     useSetTitle('Services')
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/hairbox/all-services')
+        fetch('https://haircat-salon.vercel.app/api/hairbox/all-services')
             .then(res => res.json())
             .then(data => setServices(data.data))
     }, [])
 
     return (
-        <div className='px-[15px] md:px-0 mx-auto container py-20'>
+        <div className='px-[15px] md:px-0 mx-auto container py-8 lg:py-20'>
             <div className='pt-16 pb-20'>
             <div className='flex flex-col items-center lg:max-w-2xl mx-auto mb-8 text-center'>
                 <h2 className='text-4xl text-theme-dark mb-3 font-bold'>Our Services</h2>

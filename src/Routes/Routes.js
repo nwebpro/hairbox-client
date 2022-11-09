@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
             {
                 path: '/service/:serviceId',
                 element: <ServiceDetails />,
-                loader: ({ params }) => fetch(`http://localhost:5000/api/hairbox/service/${params?.serviceId}`)
+                loader: ({ params }) => fetch(`https://haircat-salon.vercel.app/api/hairbox/service/${params?.serviceId}`)
             },
             {
                 path: '/service/add',

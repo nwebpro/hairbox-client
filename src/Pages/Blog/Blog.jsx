@@ -9,7 +9,7 @@ import useSetTitle from '../../hooks/useSetTitle';
 const Blog = () => {
     useSetTitle('Blog')
     return (
-        <div className='px-[15px] md:px-0 mx-auto container py-20'>
+        <div className='px-[15px] md:px-0 mx-auto container pb-10 pt-16 lg:py-20'>
             <div className='flex flex-col items-center lg:max-w-2xl mx-auto text-center'>
                 <h2 className='text-4xl text-theme-dark mb-3 font-bold'>Our Blog</h2>
                 <p className='text-base text-theme-body'>A laoreet aliquam mauris porta maecenas felis, donec nec curabitur quis dui sit, et porta ultricies pretium semper.</p>

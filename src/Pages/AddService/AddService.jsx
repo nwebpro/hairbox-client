@@ -16,7 +16,7 @@ const AddService = () => {
             date: new Date()
         }
 
-        fetch('http://localhost:5000/api/hairbox/services', {
+        fetch('https://haircat-salon.vercel.app/api/hairbox/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

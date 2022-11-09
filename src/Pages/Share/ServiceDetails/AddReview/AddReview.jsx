@@ -1,10 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../Context/AuthContext/AuthProvider';
+import { FaStar } from 'react-icons/fa'
+
+const colors = {
+    orange: "#FFBA5A",
+    grey: "#a9a9a9"
+    
+}
+
 
 const AddReview = ({ details }) => {
+    const [currentValue, setCurrentValue] = useState(0);
+    const [hoverValue, setHoverValue] = useState(undefined);
+    const stars = Array(5).fill(0)
     const { _id } = details
     const { user } = useContext(AuthContext)
+
+
     const handleReviewAdd = e => {
         e.preventDefault()
         const from = e.target
@@ -14,10 +27,11 @@ const AddReview = ({ details }) => {
             reviewDetails: from.reviewDetails.value,
             serviceId: _id,
             userImg: user?.photoURL,
+            rating: currentValue,
             date: new Date()
         }
 
-        fetch('http://localhost:5000/api/hairbox/reviews', {
+        fetch('https://haircat-salon.vercel.app/api/hairbox/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -37,8 +51,40 @@ const AddReview = ({ details }) => {
             toast.error(err.message)
         })
     }
+
+    // Add Review with Star Icon
+    const handleClick = value => {
+        setCurrentValue(value)
+    }
+    const handleMouseOver = newHoverValue => {
+        setHoverValue(newHoverValue)
+    }
+    const handleMouseLeave = () => {
+        setHoverValue(undefined)
+    }
+    
     return (
         <form onSubmit={handleReviewAdd} className='p-10 bg-white shadow-2xl rounded-xl'>
+            <div className='flex justify-center mb-5'>
+                {
+                    stars.map((_, index) => {
+                        return (
+                            <FaStar
+                                key={index}
+                                size={30}
+                                onClick={() => handleClick(index + 1)}
+                                onMouseOver={() => handleMouseOver(index + 1)}
+                                onMouseLeave={handleMouseLeave}
+                                color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                                style={{
+                                    marginRight: 8,
+                                    cursor: "pointer"
+                                }}
+                            />
+                        )
+                    })
+                }
+            </div>
             <div className='mb-5 grid grid-cols-1 md:grid-cols-2 gap-5'>
                 <input
                 type="text"

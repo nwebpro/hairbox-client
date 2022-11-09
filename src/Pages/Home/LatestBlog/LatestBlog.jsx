@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const LatestBlog = () => {
     return (
-        <div className='pt-10 pb-20'>
+        <div className='md:pt-10 pb-20'>
             <div className='flex flex-col items-center lg:max-w-2xl mx-auto text-center'>
                 <h2 className='text-4xl text-theme-dark mb-3 font-bold'>Our Blog</h2>
                 <p className='text-base text-theme-body'>A laoreet aliquam mauris porta maecenas felis, donec nec curabitur quis dui sit, et porta ultricies pretium semper.</p>
