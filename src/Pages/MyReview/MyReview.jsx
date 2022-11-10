@@ -8,29 +8,32 @@ import { toast } from 'react-toastify';
 import { InfinitySpin } from  'react-loader-spinner'
 
 const MyReview = () => {
-    const { user, userLogout } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const [reviewLoading, setReviewLoading] = useState(true)
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(false);
     useSetTitle('My Review')
 
     useEffect(() => {
+        if(!user?.email){
+            return
+        }
         fetch(`https://haircat-salon.vercel.app/api/hairbox/review?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('hairboxToken')}`
             }
         })
         .then(res => {
-            if(res.status === 401 || res.status === 403) {
-                return userLogout()
-            }
+            // if(res.status === 401 || res.status === 403) {
+            //     return userLogout()
+            // }
             return res.json()
         })
         .then(data => {
             setReviews(data)
             setReviewLoading(false)
         })
-    }, [user?.email, refresh, userLogout])
+    }, [user?.email, refresh])
 
     const handleReviewDelete = reviewId => {
         Swal.fire({

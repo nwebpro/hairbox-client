@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { setJWTAuthToken } from '../../api/jwtAuth'
 import { AuthContext } from '../../Context/AuthContext/AuthProvider'
 import useSetTitle from '../../hooks/useSetTitle'
 import SocialLogin from '../Share/SocialLogin/SocialLogin'
@@ -22,10 +21,26 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user
-                setJWTAuthToken(user)
-                navigate('/')
-                handleUpdateUser(name, photoURL)
-                toast.success('User Created Successfully!', { autoClose: 500 })
+                const currentUser = {
+                    email: user.email
+                }
+                // Get JWT Token
+                fetch('https://haircat-salon.vercel.app/api/hairbox/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    // Local Storage is the easiest but not the best place to share JWT Token
+                    localStorage.setItem('hairboxToken', data.data)
+                    navigate('/')
+                    handleUpdateUser(name, photoURL)
+                    toast.success('User Created Successfully!', { autoClose: 500 })
+                })
+                
             })
             .catch(error => {
                 toast.error(error.message, { autoClose: 500 })
