@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthContext/AuthProvider';
 import useSetTitle from '../../../hooks/useSetTitle';
@@ -22,7 +23,11 @@ const ServiceDetails = () => {
     return (
         <div className='px-[15px] lg:px-0 mx-auto lg:max-w-4xl py-20'>
             <div data-aos='fade-up' data-aos-duration='1000'>
-                <img src={ serviceImage } className='w-full h-96 object-cover object-center rounded mb-3' alt="" />
+                <PhotoProvider>
+                    <PhotoView src={ serviceImage }>
+                        <img src={ serviceImage } className='w-full h-96 object-cover object-center rounded mb-3' alt="" />
+                    </PhotoView>
+                </PhotoProvider>
                 <h2 className='text-2xl font-bold text-theme-dark mb-2'>{ serviceName }</h2>
                 <p className='text-theme-body text-base mb-5'>{ serviceDetails }</p>
                 <button className='inline-flex font-bold bg-theme-default py-3 px-7 text-white text-xl rounded-full '>Price: ${ price }</button>

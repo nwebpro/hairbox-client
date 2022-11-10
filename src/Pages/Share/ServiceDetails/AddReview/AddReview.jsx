@@ -12,7 +12,7 @@ const AddReview = ({ details }) => {
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
     const stars = Array(5).fill(0)
-    const { _id } = details
+    const { _id, serviceName } = details
     const { user } = useContext(AuthContext)
 
     const handleReviewAdd = e => {
@@ -25,6 +25,7 @@ const AddReview = ({ details }) => {
             serviceId: _id,
             userImg: user?.photoURL,
             rating: currentValue,
+            serviceName: serviceName,
             date: new Date()
         }
 
@@ -82,7 +83,7 @@ const AddReview = ({ details }) => {
                     })
                 }
             </div>
-            <div className='mb-5 grid grid-cols-1 md:grid-cols-2 gap-5'>
+            <div className='mb-5 grid grid-cols-1 md:grid-cols-3 gap-5'>
                 <input
                 type="text"
                 name="userName"
@@ -95,6 +96,14 @@ const AddReview = ({ details }) => {
                 type="email"
                 name="userEmail"
                 defaultValue={user?.email}
+                readOnly
+                className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
+                placeholder='Enter your name'
+                />
+                <input
+                type="text"
+                name="serviceName"
+                defaultValue={ serviceName }
                 readOnly
                 className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
                 placeholder='Enter your name'

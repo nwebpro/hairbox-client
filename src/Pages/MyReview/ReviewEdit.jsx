@@ -37,6 +37,7 @@ const ReviewEdit = () => {
             userName: e.target.userName.value,
             userEmail: e.target.userEmail.value,
             reviewDetails: e.target.reviewDetails.value,
+            serviceName: e.target.serviceName.value,
             rating: currentValue,
         }
     
@@ -94,12 +95,12 @@ const ReviewEdit = () => {
                         })
                     }
                 </div>
-                <div className='mb-5 grid grid-cols-1 md:grid-cols-2 gap-5'>
-                    <input
+                <div className='mb-5 grid grid-cols-1 md:grid-cols-3 gap-5'>
+                <input
                     type="text"
                     name="userName"
-                    readOnly
                     defaultValue={reviewUpdate?.userName}
+                    readOnly
                     className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
                     placeholder='Enter your name'
                     />
@@ -107,6 +108,14 @@ const ReviewEdit = () => {
                     type="email"
                     name="userEmail"
                     defaultValue={reviewUpdate?.userEmail}
+                    readOnly
+                    className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
+                    placeholder='Enter your name'
+                    />
+                    <input
+                    type="text"
+                    name="serviceName"
+                    defaultValue={ reviewUpdate?.serviceName }
                     readOnly
                     className="mt-2 block w-full rounded-md border py-3 px-5 focus:outline-none"
                     placeholder='Enter your name'
