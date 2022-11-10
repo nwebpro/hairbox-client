@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { setJWTAuthToken } from '../../../api/jwtAuth'
 import facebook from '../../../assets/image/socialLogin/facebook.svg'
 import google from '../../../assets/image/socialLogin/google.svg'
 import linkedin from '../../../assets/image/socialLogin/linkedin.svg'
@@ -17,8 +16,23 @@ const SocialLogin = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user
-                setJWTAuthToken(user)
-                navigate(from, { replace: true })
+                const currentUser = {
+                    email: user.email
+                }
+                // Get JWT Token
+                fetch('https://haircat-salon.vercel.app/api/hairbox/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    // Local Storage is the easiest but not the best place to share JWT Token
+                    localStorage.setItem('hairboxToken', data.data)
+                    navigate(from, { replace: true })
+                })
             })
             .catch(error => {
                 toast.error(error.message, { autoClose: 500 })
