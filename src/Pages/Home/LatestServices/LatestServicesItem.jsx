@@ -11,7 +11,9 @@ const LatestServicesItem = ({ service }) => {
                     <img src={ serviceImage } className='w-full mb-5 rounded-lg' alt="" />
                 </PhotoView>
             </PhotoProvider>
-            <h2 className='text-2xl font-bold text-theme-dark mb-3 leading-8'>{ serviceName }</h2>
+            <Link to={`/service/${ _id }`}>
+                <h2 className='text-2xl font-bold text-theme-dark mb-3 leading-8'>{ serviceName }</h2>
+            </Link>
             <h3 className='text-bold text-xl mb-2'>Price: ${ price }</h3>
             <p>
                 {
