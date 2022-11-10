@@ -8,7 +8,7 @@ const colors = {
     grey: "#a9a9a9"
 }
 
-const AddReview = ({ details }) => {
+const AddReview = ({ details, handleAutoReviewShow }) => {
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
     const stars = Array(5).fill(0)
@@ -39,6 +39,7 @@ const AddReview = ({ details }) => {
         .then(res => res.json())
         .then(data => {
             if(data.success){
+                handleAutoReviewShow(_id)
                 toast.success(data.message)
             }else{
                 toast.error(data.error)

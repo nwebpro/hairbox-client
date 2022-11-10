@@ -18,7 +18,14 @@ const ServiceDetails = () => {
         fetch(`https://haircat-salon.vercel.app/api/hairbox/all-review?serviceId=${ _id }`)
         .then(res => res.json())
         .then(data => {setReviews(data.data)})
-    }, [reviews, _id])
+    }, [_id])
+
+    // This function create a realtime review show in service details without page reload
+    const handleAutoReviewShow = id => {
+        fetch(`https://haircat-salon.vercel.app/api/hairbox/all-review?serviceId=${ id }`)
+        .then(res => res.json())
+        .then(data => setReviews(data.data))
+    }
 
     return (
         <div className='px-[15px] lg:px-0 mx-auto lg:max-w-4xl py-20'>
@@ -44,7 +51,7 @@ const ServiceDetails = () => {
             <div className='mt-16'>
                 {
                     user?.uid ?
-                    <AddReview details={details} />
+                    <AddReview details={details} handleAutoReviewShow={handleAutoReviewShow} />
                     :
                     <Link to='/login'>
                         <div className='w-full text-center'>
