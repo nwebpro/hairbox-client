@@ -5,23 +5,24 @@ import jwt from '../../assets/image/jwt.jpg'
 import nodevsjs from '../../assets/image/nodevsjs.jpg'
 import nodejs from '../../assets/image/nodejs.png'
 import useSetTitle from '../../hooks/useSetTitle';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const Blog = () => {
     useSetTitle('Blog')
     return (
         <div className='px-[15px] md:px-0 mx-auto container pb-10 pt-16 lg:py-20'>
-            <div className='flex flex-col items-center lg:max-w-2xl mx-auto text-center'>
+            <div className='flex flex-col items-center lg:max-w-2xl mx-auto text-center' data-aos='zoom-in' data-aos-duration='1000'>
                 <h2 className='text-4xl text-theme-dark mb-3 font-bold'>Our Blog</h2>
                 <p className='text-base text-theme-body'>A laoreet aliquam mauris porta maecenas felis, donec nec curabitur quis dui sit, et porta ultricies pretium semper.</p>
             </div>
             <div className="py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div className="min-h-[500px] lg:min-h-[550px] border overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
-                        <img
-                            src={sqlvsnosql}
-                            className="object-cover w-full object-center h-[210px]"
-                            alt=""
-                        />
+                    <div className="min-h-[500px] lg:min-h-[550px] border overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm" data-aos='fade-up' data-aos-duration='1000'>
+                        <PhotoProvider>
+                            <PhotoView src={ sqlvsnosql }>
+                                <img src={ sqlvsnosql } className="object-cover w-full object-center h-[210px]" alt="" />
+                            </PhotoView>
+                        </PhotoProvider>
                         <div className="p-5">
                             <Link
                             to="/blog/difference-between-sql-and-nosql"
@@ -41,12 +42,12 @@ const Blog = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="min-h-[500px] lg:min-h-[550px] border overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
-                        <img
-                            src={jwt}
-                            className="object-cover w-full object-center h-[210px]"
-                            alt=""
-                        />
+                    <div className="min-h-[500px] lg:min-h-[550px] border overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm" data-aos='fade-up' data-aos-duration='1500'>
+                        <PhotoProvider>
+                            <PhotoView src={ jwt }>
+                                <img src={ jwt } className="object-cover w-full object-center h-[210px]" alt="" />
+                            </PhotoView>
+                        </PhotoProvider>
                         <div className="p-5">
                             <Link
                             to="/blog/what-is-jwt-and-how-dose-it-work"
@@ -66,12 +67,12 @@ const Blog = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="min-h-[500px] lg:min-h-[550px] border overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
-                        <img
-                            src={nodevsjs}
-                            className="object-cover w-full object-center h-[210px]"
-                            alt=""
-                        />
+                    <div className="min-h-[500px] lg:min-h-[550px] border overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm" data-aos='fade-up' data-aos-duration='2000'>
+                        <PhotoProvider>
+                            <PhotoView src={ nodevsjs }>
+                                <img src={ nodevsjs } className="object-cover w-full object-center h-[210px]" alt="" />
+                            </PhotoView>
+                        </PhotoProvider>
                         <div className="p-5">
                             <Link
                             to="/blog/what-is-the-difference-between-javascript-and-node-js"
@@ -91,12 +92,12 @@ const Blog = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="min-h-[500px] lg:min-h-[550px] border overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
-                        <img
-                            src={nodejs}
-                            className="object-cover w-full object-center h-[210px]"
-                            alt=""
-                        />
+                    <div className="min-h-[500px] lg:min-h-[550px] border overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm" data-aos='fade-up' data-aos-duration='1500'>
+                        <PhotoProvider>
+                            <PhotoView src={ nodejs }>
+                                <img src={ nodejs } className="object-cover w-full object-center h-[210px]" alt="" />
+                            </PhotoView>
+                        </PhotoProvider>
                         <div className="p-5">
                             <Link
                             to="/blog/how-does-node-js-handle-multiple-requests-at-the-same-time"

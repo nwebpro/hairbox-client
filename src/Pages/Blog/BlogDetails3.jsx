@@ -1,4 +1,5 @@
 import React from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import nodevsjs from '../../assets/image/nodevsjs.jpg'
 import useSetTitle from '../../hooks/useSetTitle';
 
@@ -7,9 +8,13 @@ const BlogDetails3 = () => {
     return (
         <div className='px-[15px] md:px-0 mx-auto container py-20'>
             <div className='w-full lg:max-w-3xl mx-auto'>
-                <img src={nodevsjs} alt="" className='w-full' />
-                <h1 className='text-3xl font-bold text-theme-dark my-5'>What is the difference between javascript and Node JS</h1>
-                <div className='mb-5'>
+                <PhotoProvider>
+                    <PhotoView src={ nodevsjs }>
+                        <img src={ nodevsjs } alt="" className='w-full' data-aos='fade-up' data-aos-duration='1000' />
+                    </PhotoView>
+                </PhotoProvider>
+                <h1 className='text-3xl font-bold text-theme-dark my-5' data-aos='fade-up' data-aos-duration='1000'>What is the difference between javascript and Node JS</h1>
+                <div className='mb-5' data-aos='fade-up' data-aos-duration='1000'>
                     <h2 className='text-2xl font-bold text-theme-dark mb-2'>What is Node JS</h2>
                     <p className='text-base text-theme-body leading-7'>NodeJS is a cross-platform and opensource Javascript runtime environment that allows the javascript to be run on the server-side. Nodejs allows Javascript code to run outside the browser. Nodejs comes with a lot of modules and mostly used in web development.</p>
                     <ul className='mt-5 pl-10 list-disc'>
@@ -23,7 +28,7 @@ const BlogDetails3 = () => {
                         <li>Nodejs is written in C, C++ and Javascript.</li>
                     </ul>
                 </div>
-                <div className='mb-5'>
+                <div className='mb-5' data-aos='fade-up' data-aos-duration='1000'>
                     <h2 className='text-2xl font-bold text-theme-dark mb-2'>What is JavaScript</h2>
                     <p className='text-base text-theme-body leading-7'>Javascript is a Scripting language. It is mostly abbreviated as JS. It can be said that Javascript is the updated version of the ECMA script. Javascript is a high-level programming language that uses the concept of Oops but it is based on prototype inheritance. </p>
                     <ul className='mt-5 pl-10 list-disc'>

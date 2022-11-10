@@ -5,7 +5,7 @@
 
 # Hairbox Best Premium Men's Salon
 
-## [Live Demo](https://genius-car-ce44b.web.app/).
+## [Live Demo](https://online-basket-548a2.web.app/).
 
 ## [Hairbox Server Side](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-nwebpro).
 
@@ -37,5 +37,7 @@
 - React Loader Spinner
 - React Countup
 - Date Fns
+- React Scroll To Top
+- AOS Animation
 
 

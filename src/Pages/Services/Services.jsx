@@ -16,7 +16,7 @@ const Services = () => {
     return (
         <div className='px-[15px] md:px-0 mx-auto container py-8 lg:py-20'>
             <div className='pt-16 pb-20'>
-            <div className='flex flex-col items-center lg:max-w-2xl mx-auto mb-8 text-center'>
+            <div className='flex flex-col items-center lg:max-w-2xl mx-auto mb-8 text-center' data-aos='zoom-in' data-aos-duration='1000'>
                 <h2 className='text-4xl text-theme-dark mb-3 font-bold'>Our Services</h2>
                 <p className='text-base text-theme-body'>There are many variations of passages of Lorem Ipsum available but the majority injected humour randomised words</p>
             </div>

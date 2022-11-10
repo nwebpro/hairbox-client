@@ -46,7 +46,7 @@ const Register = () => {
     return (
         <div className='container mx-auto px-[15px] lg:px-0 my-20'>
             <div className='md:max-w-lg mx-auto'>
-                <div className='border border-[#D0D0D0] rounded-rounded-10 p-12 md:p-20'>
+                <div className='border border-[#D0D0D0] rounded-rounded-10 p-12 md:p-20' data-aos='fade-up' data-aos-duration='1000'>
                     <h3 className='text-theme-body text-center text-4xl font-semibold leading-10 mb-b-50'>Sign Up</h3>
                     <form onSubmit={handleUserCreate} action="">
                         <div className='mb-b-30'>

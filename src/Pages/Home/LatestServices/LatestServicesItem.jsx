@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const LatestServicesItem = ({ service }) => {
     const { serviceName, price, serviceDetails, serviceImage, _id } = service
     return (
-        <div className='p-5 bg-white shadow-lg rounded-lg'>
+        <div className='p-5 bg-white shadow-lg rounded-lg' data-aos='fade-up' data-aos-duration='2000'>
             <PhotoProvider>
                 <PhotoView src={ serviceImage }>
                     <img src={ serviceImage } className='w-full mb-5 rounded-lg' alt="" />

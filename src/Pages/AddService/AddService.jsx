@@ -37,7 +37,7 @@ const AddService = () => {
         })
     }
     return (
-        <div className='px-[15px] md:px-0 mx-auto container py-20'>
+        <div className='px-[15px] md:px-0 mx-auto container py-20' data-aos='fade-up' data-aos-duration='1000'>
             <form onSubmit={handleServiceAdd} className='lg:max-w-3xl mx-auto p-10 bg-white shadow-2xl rounded-xl'>
                 <div className='mb-5'>
                     <label htmlFor="serviceName" className="block text-sm font-bold text-theme-dark">

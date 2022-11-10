@@ -8,7 +8,7 @@ const ReviewItem = ({ review }) => {
         { includeSeconds: true }
     )
     return (
-        <div className="flex flex-col divide-y rounded-md divide-gray-200">
+        <div className="flex flex-col divide-y rounded-md divide-gray-200" data-aos='fade-up' data-aos-duration='1000'>
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>

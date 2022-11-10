@@ -1,14 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../Context/AuthContext/AuthProvider';
-import { FaStar } from 'react-icons/fa'
+import { SlStar } from 'react-icons/sl'
 
 const colors = {
-    orange: "#FFBA5A",
+    orange: "#FF9302",
     grey: "#a9a9a9"
-    
 }
-
 
 const AddReview = ({ details }) => {
     const [currentValue, setCurrentValue] = useState(0);
@@ -16,7 +14,6 @@ const AddReview = ({ details }) => {
     const stars = Array(5).fill(0)
     const { _id } = details
     const { user } = useContext(AuthContext)
-
 
     const handleReviewAdd = e => {
         e.preventDefault()
@@ -64,12 +61,12 @@ const AddReview = ({ details }) => {
     }
     
     return (
-        <form onSubmit={handleReviewAdd} className='p-10 bg-white shadow-2xl rounded-xl'>
+        <form onSubmit={handleReviewAdd} className='p-10 bg-white shadow-2xl rounded-xl' data-aos='fade-up' data-aos-duration='1000'>
             <div className='flex justify-center mb-5'>
                 {
                     stars.map((_, index) => {
                         return (
-                            <FaStar
+                            <SlStar
                                 key={index}
                                 size={30}
                                 onClick={() => handleClick(index + 1)}

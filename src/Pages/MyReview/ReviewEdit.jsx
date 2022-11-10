@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useSetTitle from '../../hooks/useSetTitle';
-import { FaStar } from 'react-icons/fa'
+import { SlStar } from 'react-icons/sl'
 
 const colors = {
-    orange: "#FFBA5A",
+    orange: "#FF9302",
     grey: "#a9a9a9"
-    
 }
 
 const ReviewEdit = () => {
@@ -73,13 +72,13 @@ const ReviewEdit = () => {
     }
 
     return (
-        <div className='px-[15px] lg:px-0 mx-auto lg:max-w-4xl py-20'>
+        <div className='px-[15px] lg:px-0 mx-auto lg:max-w-4xl py-20' data-aos='fade-up' data-aos-duration='1000'>
             <form onSubmit={handleReviewUpdate} className='p-10 bg-white shadow-2xl rounded-xl'>
                 <div className='flex justify-center mb-5'>
                     {
                         stars.map((_, index) => {
                             return (
-                                <FaStar
+                                <SlStar
                                     key={index}
                                     size={30}
                                     onClick={() => handleClick(index + 1)}
@@ -88,7 +87,7 @@ const ReviewEdit = () => {
                                     color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
                                     style={{
                                         marginRight: 8,
-                                        cursor: "pointer"
+                                        cursor: "pointer",
                                     }}
                                 />
                             )

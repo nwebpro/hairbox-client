@@ -21,16 +21,18 @@ const ServiceDetails = () => {
 
     return (
         <div className='px-[15px] lg:px-0 mx-auto lg:max-w-4xl py-20'>
-            <img src={ serviceImage } className='w-full h-96 object-cover object-center rounded mb-3' alt="" />
-            <h2 className='text-2xl font-bold text-theme-dark mb-2'>{ serviceName }</h2>
-            <p className='text-theme-body text-base mb-5'>{ serviceDetails }</p>
-            <button className='inline-flex font-bold bg-theme-default py-3 px-7 text-white text-xl rounded-full '>Price: ${ price }</button>
-            <div className='mt-20 flex justify-between'>
-                
-                <div className="">
-                    <div className="flex flex-col">
-                        <h2 className="text-2xl font-semibold mb-2">Customer reviews</h2>
-                        <p className="text-lg text-theme-dark">{reviews.length} ratings</p>
+            <div data-aos='fade-up' data-aos-duration='1000'>
+                <img src={ serviceImage } className='w-full h-96 object-cover object-center rounded mb-3' alt="" />
+                <h2 className='text-2xl font-bold text-theme-dark mb-2'>{ serviceName }</h2>
+                <p className='text-theme-body text-base mb-5'>{ serviceDetails }</p>
+                <button className='inline-flex font-bold bg-theme-default py-3 px-7 text-white text-xl rounded-full '>Price: ${ price }</button>
+                <div className='mt-20 flex justify-between'>
+                    
+                    <div className="">
+                        <div className="flex flex-col">
+                            <h2 className="text-2xl font-semibold mb-2">Customer reviews</h2>
+                            <p className="text-lg text-theme-dark">{reviews.length} ratings</p>
+                        </div>
                     </div>
                 </div>
             </div>
