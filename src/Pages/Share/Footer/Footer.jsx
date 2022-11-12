@@ -63,7 +63,7 @@ const Footer = () => {
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mt-20 pb-16'>
                     <p className='text-center md:text-left'>Copyright © 2021 - { year } <Link to='/' className='text-theme-default'>Hairbox.</Link> All Rights Reserved.</p>
-                    <p className='text-center md:text-right'>Developed & Maintained By  <a href='/https://www.facebook.com/abnaeembsc' className='text-theme-default' target={'_blank'}>Ab Naeem.</a></p>
+                    <p className='text-center md:text-right'>Developed & Maintained By  <a href='https://www.facebook.com/abnaeembsc' className='text-theme-default' target={'_blank'} rel="noreferrer">Ab Naeem.</a></p>
                 </div>
             </div>
         </footer>

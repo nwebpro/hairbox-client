@@ -160,7 +160,7 @@ const Header = () => {
                             </svg>
                         </button>
                         {isMenuOpen && (
-                        <div className="absolute top-0 left-0 w-full bg-themeBlue-40">
+                        <div className="absolute top-0 left-0 w-full bg-white z-10">
                             <div className="p-5 bg-white rounded shadow-sm">
                                 <div className="flex items-center justify-between mb-4">
                                     <div>
