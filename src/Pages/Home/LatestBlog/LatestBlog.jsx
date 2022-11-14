@@ -12,7 +12,7 @@ const LatestBlog = () => {
                 <h2 className='text-4xl text-theme-dark mb-3 font-bold'>Our Blog</h2>
                 <p className='text-base text-theme-body'>A laoreet aliquam mauris porta maecenas felis, donec nec curabitur quis dui sit, et porta ultricies pretium semper.</p>
             </div>
-            <div className="py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
+            <div className="py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl overflow-hidden">
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     <div className="min-h-[500px] lg:min-h-[550px] border overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm" data-aos='fade-right' data-aos-duration='1500'>
                         <PhotoProvider>
