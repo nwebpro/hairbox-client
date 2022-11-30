@@ -7,7 +7,7 @@
 
 ## [Live Demo](https://online-basket-548a2.web.app/).
 
-## [Hairbox Server Side](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-nwebpro).
+## [Hairbox Server Side](https://github.com/nwebpro/hairbox-server).
 
 # About the Project
 ### Hairbox is a simple Online barber shop website services. And in this website, a user can log in and give a review of the service of his choice to see how he likes the service. I have created this as an assignment purpose on this website. I have used lots of libraries.
